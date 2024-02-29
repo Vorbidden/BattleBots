@@ -10,9 +10,10 @@ func _ready():
 func _process(delta):
 	pass
 
-func shoot_bullet():
+func shoot_bullet(damage: int):
 	var instance = bullet.instantiate()
 	instance.transform = self.transform
+	instance.damage = damage
 	add_child(instance)
 
 func _on_timer_timeout():

@@ -201,10 +201,11 @@ animations = [{
 position = Vector2(1378, 492)
 collision_layer = 2
 script = ExtResource("1_wr5so")
+speed = 100.0
 direction = -1.0
 damage = 100
 cost = 5
-attack_range = 450.0
+attack_range = 300.0
 health = 300
 
 [node name="HP" type="Label" parent="."]
@@ -216,7 +217,7 @@ offset_left = -57.0
 offset_top = -47.0
 offset_right = 31.0
 offset_bottom = -24.0
-text = "rwteyrfdtyf
+text = "
 "
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -225,7 +226,7 @@ shape = SubResource("RectangleShape2D_x2kry")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-4, 87)
+position = Vector2(-12, 87)
 scale = Vector2(2.28125, 2.26562)
 sprite_frames = SubResource("SpriteFrames_r1e8p")
 animation = &"run"

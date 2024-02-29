@@ -535,7 +535,7 @@ animations = [{
 position = Vector2(-226, 480)
 collision_mask = 2
 script = ExtResource("1_y27he")
-health = 20
+attack_range = 150.0
 
 [node name="HP" type="Label" parent="."]
 anchors_preset = -1
@@ -547,7 +547,7 @@ offset_left = -43.0
 offset_top = -49.0
 offset_right = 45.0
 offset_bottom = -26.0
-text = "rwteyrfdtyf
+text = "
 "
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

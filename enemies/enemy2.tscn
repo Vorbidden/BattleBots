@@ -190,7 +190,7 @@ offset_left = -51.0
 offset_top = -63.0
 offset_right = 37.0
 offset_bottom = -40.0
-text = "rwteyrfdtyf
+text = "
 "
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
@@ -204,10 +204,10 @@ shape = SubResource("RectangleShape2D_x2kry")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-12, 56)
+position = Vector2(-4, 56)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_r1e8p")
-animation = &"death"
+animation = &"attack"
 
 [node name="Bullets" type="Marker2D" parent="."]
 position = Vector2(22, 32)

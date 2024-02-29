@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Define your character's movement properties
-@export var speed: float = 500
+@export var speed: float = 200
 @export var direction: float = 1
 
 # Attributes
@@ -35,9 +35,10 @@ func _physics_process(delta: float) -> void:
 	if $RayCast2D.get_collider() != null:
 		if $RayCast2D.get_collider().is_dying != true and is_dying != true:
 			if !is_attacking:
-				$RayCast2D.get_collider().take_damage(damage)
 				if has_projectiles:
-					$Bullets.shoot_bullet()
+					$Bullets.shoot_bullet(damage)
+				else:
+					$RayCast2D.get_collider().take_damage(damage)
 			is_attacking = true
 			velocity.x = 0
 	else:
