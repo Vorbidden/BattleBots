@@ -10,6 +10,7 @@ extends CharacterBody2D
 @export var cost: int = 1
 @export var attack_range: float = 200
 @export var health: int = 50
+@export var has_projectiles: bool = false
 
 var jump_power: float = 500
 var gravity: float = 1000
@@ -22,21 +23,29 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(delta):
+	pass
+		
+func _physics_process(delta: float) -> void:
 	$HP.text = str(health)
 	if health <= 0 and is_dying == false:
 		is_dying = true
 		$CollisionShape2D.disabled = true
-		
-func _physics_process(delta: float) -> void:
 
-	# Handle horizontal movement
+	# Detect Unit in front to attack
 	if $RayCast2D.get_collider() != null:
 		if $RayCast2D.get_collider().is_dying != true and is_dying != true:
+			if !is_attacking:
+				$RayCast2D.get_collider().take_damage(damage)
+				if has_projectiles:
+					$Bullets.shoot_bullet()
 			is_attacking = true
 			velocity.x = 0
 	else:
-		if is_attacking != true:
+		if !is_attacking:
 			velocity.x = direction * speed
+
+	if is_dying:
+		velocity.x = 0
 
 	# Move the character using the updated velocity
 	move_and_slide()
@@ -46,10 +55,8 @@ func _physics_process(delta: float) -> void:
 
 # Update character animations based on the current state
 func update_animations():
-
 	if is_dying:
 		$Sprite2D.play("death")
-		speed = 0
 	elif is_attacking:
 		$Sprite2D.play("attack")
 	elif velocity.x != 0:
@@ -59,14 +66,11 @@ func update_animations():
 
 func take_damage(damage: int):
 	health -= damage
-
+	
 func _on_sprite_2d_animation_finished():
+	# Finish Death
 	if is_dying == true:
 		queue_free()
-	if is_attacking:
-		attack_animation = ["attack", "attack_2", "attack_combo"][randi_range(0,2)]
+	# Finish Attack
+	elif is_attacking:
 		is_attacking = false
-		if $RayCast2D.get_collider() != null:
-			$RayCast2D.get_collider().take_damage(damage)
-			if $Bullets:
-				$Bullets.shoot_bullet()

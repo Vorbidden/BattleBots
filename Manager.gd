@@ -7,7 +7,7 @@ var enemy2 = load("res://enemies/enemy2.tscn")
 var player_tower = load("res://players/player_tower.tscn")
 var enemy_tower = load("res://enemies/enemy_tower.tscn")
 @export var energy_per_second: int = 1
-@export var energy: int = 0
+@export var energy: int = 5
 @export var max_energy: int = 12
 @export var default_spawn_cost : int = 2
 @export var energy_upgrade_cost: int = 5
@@ -46,9 +46,9 @@ func _input(event):
 			print("Wheel up")
 	
 func _on_timer_timeout():
-	#var instance = enemy.instantiate()
-	#instance.position.y = 480
-	#$Enemies.add_child(instance)
+	var instance = enemy.instantiate()
+	instance.position.y = 480
+	$Enemies.add_child(instance)
 	var instance2 = enemy2.instantiate()
 	instance2.position.y = 480
 	$Enemies.add_child(instance2)

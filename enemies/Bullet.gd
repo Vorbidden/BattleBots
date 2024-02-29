@@ -10,7 +10,7 @@ func _process(delta):
 	pass
 
 func _physics_process(delta):
-	velocity.x = 500
+	velocity.x = 8000
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		var collider = collision.get_collider()

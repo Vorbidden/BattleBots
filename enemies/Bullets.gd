@@ -12,10 +12,10 @@ func _process(delta):
 
 func shoot_bullet():
 	var instance = bullet.instantiate()
-	instance.transform = get_parent().get_node("Bullets").transform
+	instance.transform = self.transform
 	add_child(instance)
-	
+
 func _on_timer_timeout():
 	var instance = bullet.instantiate()
-	instance.transform = get_parent().transform
+	#instance.transform = get_parent().transform
 	add_child(instance)

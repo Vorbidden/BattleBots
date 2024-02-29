@@ -194,7 +194,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 8.0
+"speed": 15.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
@@ -228,7 +228,7 @@ metadata/_edit_lock_ = true
 position = Vector2(-4, 87)
 scale = Vector2(2.28125, 2.26562)
 sprite_frames = SubResource("SpriteFrames_r1e8p")
-animation = &"attack"
+animation = &"run"
 flip_h = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

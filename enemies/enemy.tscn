@@ -422,7 +422,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"death",
-"speed": 15.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -535,7 +535,7 @@ animations = [{
 position = Vector2(-226, 480)
 collision_mask = 2
 script = ExtResource("1_y27he")
-health = 100
+health = 20
 
 [node name="HP" type="Label" parent="."]
 anchors_preset = -1
@@ -563,7 +563,8 @@ metadata/_edit_lock_ = true
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_r1e8p")
-animation = &"attack"
+animation = &"death"
 metadata/_edit_lock_ = true
 
+[connection signal="animation_changed" from="Sprite2D" to="." method="_on_sprite_2d_animation_changed"]
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]
