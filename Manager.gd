@@ -5,7 +5,7 @@ var player2 = load("res://players/player2.tscn")
 var player3 = load("res://players/player3.tscn")
 var enemy = load("res://enemies/enemy.tscn")
 var enemy2 = load("res://enemies/enemy2.tscn")
-#var player_tower = load("res://players/player_tower.tscn")
+
 @onready var player_tower = $Players/player_tower
 @onready var enemy_tower = $Enemies/enemy_tower
 

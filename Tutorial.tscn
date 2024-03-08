@@ -1,111 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://ceyhinewnwofc"]
+[gd_scene load_steps=3 format=3 uid="uid://cees3rb1egdqd"]
 
-[ext_resource type="Script" path="res://Manager.gd" id="1_6uu0v"]
+[ext_resource type="Script" path="res://Tutorial.gd" id="1_nft1d"]
+[ext_resource type="Texture2D" uid="uid://cxadud6e24paw" path="res://assets/Untitled drawing.png" id="2_o6u04"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_5ryyy"]
-font_size = 28
-font_color = Color(0.92549, 0.584314, 0.117647, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2rxn"]
-size = Vector2(25.88, 640.625)
-
-[node name="Game" type="Node2D"]
-script = ExtResource("1_6uu0v")
-
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="Energy" type="Label" parent="UI"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -93.5
-offset_right = 93.5
-offset_bottom = 64.0
+[node name="the_tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-text = "Bob"
-label_settings = SubResource("LabelSettings_5ryyy")
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_group_ = true
+grow_vertical = 2
+script = ExtResource("1_nft1d")
 
-[node name="BlasterButton" type="Button" parent="UI"]
-anchors_preset = -1
-anchor_left = -0.0208333
-anchor_right = 0.0295139
-anchor_bottom = 0.0864198
-offset_left = 1091.0
-offset_top = 17.0
-offset_right = 1099.0
-offset_bottom = 25.0
-text = "Blast
-5E"
-metadata/_edit_use_anchors_ = true
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="EnergyButton" type="Button" parent="UI"]
-anchors_preset = -1
-anchor_left = -0.0208333
-anchor_right = 0.0295139
-anchor_bottom = 0.0864198
-offset_left = 530.0
-offset_top = 59.0
-offset_right = 538.0
-offset_bottom = 67.0
-text = "More Energy"
-metadata/_edit_use_anchors_ = true
+[node name="Button" type="Button" parent="PanelContainer"]
+layout_mode = 2
+icon = ExtResource("2_o6u04")
+icon_alignment = 1
+expand_icon = true
 
-[node name="SwordButton" type="Button" parent="UI"]
-anchors_preset = -1
-anchor_left = -0.0208333
-anchor_right = 0.0295139
-anchor_bottom = 0.0864198
-offset_left = 1001.0
-offset_top = 18.0
-offset_right = 1009.0
-offset_bottom = 26.0
-text = "Sword
-2E"
-metadata/_edit_use_anchors_ = true
-
-[node name="TankButton" type="Button" parent="UI"]
-anchors_preset = -1
-anchor_left = -0.0208333
-anchor_right = 0.0295139
-anchor_bottom = 0.0864198
-offset_left = 909.0
-offset_top = 22.0
-offset_right = 917.0
-offset_bottom = 30.0
-text = "Tank
-3E"
-metadata/_edit_use_anchors_ = true
-
-[node name="Wall" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-position = Vector2(-441, 308)
-shape = SubResource("RectangleShape2D_f2rxn")
-
-[node name="Wall2" type="StaticBody2D" parent="."]
-position = Vector2(1000, 2.08165e-12)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
-position = Vector2(1061, 321)
-shape = SubResource("RectangleShape2D_f2rxn")
-
-[node name="Players" type="Node" parent="."]
-
-[node name="Enemies" type="Node" parent="."]
-
-[node name="EnemySpawnTimer" type="Timer" parent="."]
-wait_time = 3.0
-autostart = true
-
-[node name="EnergyRechargeTimer" type="Timer" parent="."]
-autostart = true
-
-[connection signal="pressed" from="UI/BlasterButton" to="." method="_on_blaster_button_pressed"]
-[connection signal="pressed" from="UI/EnergyButton" to="." method="_on_energy_button_pressed"]
-[connection signal="pressed" from="UI/SwordButton" to="." method="_on_sword_button_pressed"]
-[connection signal="pressed" from="UI/TankButton" to="." method="_on_tank_button_pressed"]
-[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="EnergyRechargeTimer" to="." method="_on_energy_recharge_timer_timeout"]
+[connection signal="pressed" from="PanelContainer/Button" to="." method="_on_button_pressed"]
