@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5u8tpxchjafb"]
+[gd_scene load_steps=4 format=3 uid="uid://ceyhinewnwofc"]
 
-[ext_resource type="Script" path="res://Manager.gd" id="1_8yr2x"]
-[ext_resource type="PackedScene" uid="uid://hoymgo6h8ea5" path="res://players/player_tower.tscn" id="2_ct1jn"]
-[ext_resource type="PackedScene" uid="uid://b6cmotu1ddhau" path="res://enemies/enemy_tower.tscn" id="3_7irdb"]
+[ext_resource type="Script" path="res://Manager.gd" id="1_6uu0v"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5ryyy"]
 font_size = 28
@@ -12,7 +10,7 @@ font_color = Color(0.92549, 0.584314, 0.117647, 1)
 size = Vector2(25.88, 640.625)
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_8yr2x")
+script = ExtResource("1_6uu0v")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -96,13 +94,7 @@ shape = SubResource("RectangleShape2D_f2rxn")
 
 [node name="Players" type="Node" parent="."]
 
-[node name="player_tower" parent="Players" instance=ExtResource("2_ct1jn")]
-position = Vector2(1065, 489)
-
 [node name="Enemies" type="Node" parent="."]
-
-[node name="enemy_tower" parent="Enemies" instance=ExtResource("3_7irdb")]
-position = Vector2(100, 481)
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 wait_time = 3.0
@@ -115,7 +107,5 @@ autostart = true
 [connection signal="pressed" from="UI/EnergyButton" to="." method="_on_energy_button_pressed"]
 [connection signal="pressed" from="UI/SwordButton" to="." method="_on_sword_button_pressed"]
 [connection signal="pressed" from="UI/TankButton" to="." method="_on_tank_button_pressed"]
-[connection signal="player_tower_destroyed" from="Players/player_tower" to="." method="_on_player_tower_player_tower_destroyed"]
-[connection signal="enemy_tower_destroyed" from="Enemies/enemy_tower" to="." method="_on_enemy_tower_enemy_tower_destroyed"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="EnergyRechargeTimer" to="." method="_on_energy_recharge_timer_timeout"]

@@ -2,10 +2,14 @@ extends Node2D
 
 var player = load("res://players/player.tscn")
 var player2 = load("res://players/player2.tscn")
+var player3 = load("res://players/player3.tscn")
 var enemy = load("res://enemies/enemy.tscn")
 var enemy2 = load("res://enemies/enemy2.tscn")
-var player_tower = load("res://players/player_tower.tscn")
-var enemy_tower = load("res://enemies/enemy_tower.tscn")
+#var player_tower = load("res://players/player_tower.tscn")
+@onready var player_tower = $Players/player_tower
+@onready var enemy_tower = $Enemies/enemy_tower
+
+var game_over_screen = preload("res://game_over_screen.tscn")
 
 @export var energy_per_second: int = 1
 @export var energy: int = 5
@@ -19,15 +23,9 @@ var enemy_tower_x: int = 0
 
 func _ready():
 	update_text()
-	var i_player = player_tower.instantiate()
-	i_player.position.y = 480
-	player_tower_x = i_player.position.x
-	$Players.add_child(i_player)
-	var i_enemy = enemy_tower.instantiate()
-	i_enemy.position.y = 480
-	enemy_tower_x = i_enemy.position.x
-	$Enemies.add_child(i_enemy)
-
+	enemy_tower_x = enemy_tower.position.x
+	player_tower_x = player_tower.position.x
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -78,3 +76,22 @@ func _on_blaster_button_pressed():
 		instance.position.x = player_tower_x
 		$Players.add_child(instance)
 		update_text()
+
+func _on_tank_button_pressed():
+	if energy >= 3:
+		energy = energy - 3
+		var instance = player3.instantiate()
+		instance.position.y = 480
+		instance.position.x = player_tower_x
+		$Players.add_child(instance)
+		update_text()
+
+func _on_player_tower_player_tower_destroyed():
+	var game_over = game_over_screen.instantiate()
+	get_tree().paused = true
+	add_child(game_over)
+
+func _on_enemy_tower_enemy_tower_destroyed():
+	var game_over = game_over_screen.instantiate()
+	get_tree().paused = true
+	add_child(game_over)
