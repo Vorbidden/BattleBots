@@ -30,7 +30,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_group_ = true
 
-[node name="BlasterButton" type="Button" parent="UI"]
+[node name="DeploySlot1" type="Button" parent="UI"]
 anchors_preset = -1
 anchor_left = -0.0208333
 anchor_right = 0.0295139
@@ -55,7 +55,7 @@ offset_bottom = 67.0
 text = "More Energy"
 metadata/_edit_use_anchors_ = true
 
-[node name="SwordButton" type="Button" parent="UI"]
+[node name="DeploySlot2" type="Button" parent="UI"]
 anchors_preset = -1
 anchor_left = -0.0208333
 anchor_right = 0.0295139
@@ -68,7 +68,7 @@ text = "Sword
 2E"
 metadata/_edit_use_anchors_ = true
 
-[node name="TankButton" type="Button" parent="UI"]
+[node name="DeploySlot3" type="Button" parent="UI"]
 anchors_preset = -1
 anchor_left = -0.0208333
 anchor_right = 0.0295139
@@ -111,10 +111,10 @@ autostart = true
 [node name="EnergyRechargeTimer" type="Timer" parent="."]
 autostart = true
 
-[connection signal="pressed" from="UI/BlasterButton" to="." method="_on_blaster_button_pressed"]
+[connection signal="pressed" from="UI/DeploySlot1" to="." method="_on_deploy_pressed" binds= [0]]
 [connection signal="pressed" from="UI/EnergyButton" to="." method="_on_energy_button_pressed"]
-[connection signal="pressed" from="UI/SwordButton" to="." method="_on_sword_button_pressed"]
-[connection signal="pressed" from="UI/TankButton" to="." method="_on_tank_button_pressed"]
+[connection signal="pressed" from="UI/DeploySlot2" to="." method="_on_deploy_pressed" binds= [1]]
+[connection signal="pressed" from="UI/DeploySlot3" to="." method="_on_deploy_pressed" binds= [2]]
 [connection signal="player_tower_destroyed" from="Players/player_tower" to="." method="_on_player_tower_player_tower_destroyed"]
 [connection signal="enemy_tower_destroyed" from="Enemies/enemy_tower" to="." method="_on_enemy_tower_enemy_tower_destroyed"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_timer_timeout"]

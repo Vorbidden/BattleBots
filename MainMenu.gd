@@ -11,7 +11,8 @@ func _process(delta):
 func _on_play_button_pressed():
 	get_tree().change_scene_to_file("res://Main.tscn")
 	
-
-
 func _on_tutorial_button_pressed():
 	get_tree().change_scene_to_file("res://tutorial.tscn")
+
+func _on_army_button_pressed():
+	get_tree().change_scene_to_file("res://army_select.tscn")

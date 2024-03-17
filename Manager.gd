@@ -1,8 +1,9 @@
 extends Node2D
 
-var player = load("res://players/player.tscn")
-var player2 = load("res://players/player2.tscn")
-var player3 = load("res://players/player3.tscn")
+var player 
+var player2 
+var player3
+var army
 var enemy = load("res://enemies/enemy.tscn")
 var enemy2 = load("res://enemies/enemy2.tscn")
 
@@ -25,6 +26,13 @@ func _ready():
 	update_text()
 	enemy_tower_x = enemy_tower.position.x
 	player_tower_x = player_tower.position.x
+	
+	player = Game.CurrentArmy[0]["scene"]
+	player2 = Game.CurrentArmy[1]["scene"]
+	player3 = Game.CurrentArmy[2]["scene"]
+	
+	
+	army = [player, player2, player3]
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -59,33 +67,6 @@ func update_text():
 	$UI/Energy.text = "%s / %s Energy" % [energy, max_energy]
 	$UI/EnergyButton.text = "More energy: %sE" % energy_upgrade_cost
 
-func _on_sword_button_pressed():
-	if energy >= default_spawn_cost:
-		energy = energy - default_spawn_cost
-		var instance = player.instantiate()
-		instance.position.y = 480
-		instance.position.x = player_tower_x
-		$Players.add_child(instance)
-		update_text()
-
-func _on_blaster_button_pressed():
-	if energy >= 5:
-		energy = energy - 5
-		var instance = player2.instantiate()
-		instance.position.y = 480
-		instance.position.x = player_tower_x
-		$Players.add_child(instance)
-		update_text()
-
-func _on_tank_button_pressed():
-	if energy >= 3:
-		energy = energy - 3
-		var instance = player3.instantiate()
-		instance.position.y = 480
-		instance.position.x = player_tower_x
-		$Players.add_child(instance)
-		update_text()
-
 func _on_player_tower_player_tower_destroyed():
 	var game_over = game_over_screen.instantiate()
 	get_tree().paused = true
@@ -95,3 +76,14 @@ func _on_enemy_tower_enemy_tower_destroyed():
 	var game_over = game_over_screen.instantiate()
 	get_tree().paused = true
 	add_child(game_over)
+
+func _on_deploy_pressed(extra_arg_0):
+	if Game.CurrentArmy[extra_arg_0] != null:
+		var cost = Game.CurrentArmy[extra_arg_0]["cost"]
+		if energy >= cost:
+			energy = energy - cost
+			var instance = Game.CurrentArmy[extra_arg_0]["scene"].instantiate()
+			instance.position.y = 480
+			instance.position.x = player_tower_x
+			$Players.add_child(instance)
+			update_text()

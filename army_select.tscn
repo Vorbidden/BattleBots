@@ -1,0 +1,169 @@
+[gd_scene load_steps=19 format=3 uid="uid://b0vy7tj0ya3gv"]
+
+[ext_resource type="Script" path="res://army_select.gd" id="1_bv8dv"]
+[ext_resource type="Texture2D" uid="uid://ivn3vwcu0x7y" path="res://assets/players blue x2.png" id="2_6ptvy"]
+[ext_resource type="Texture2D" uid="uid://rus737wiui80" path="res://assets/_Run.png" id="3_3pst7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0wjy"]
+atlas = ExtResource("2_6ptvy")
+region = Rect2(0, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64gxy"]
+atlas = ExtResource("2_6ptvy")
+region = Rect2(64, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlvgj"]
+atlas = ExtResource("2_6ptvy")
+region = Rect2(128, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybv4r"]
+atlas = ExtResource("2_6ptvy")
+region = Rect2(192, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wueh"]
+atlas = ExtResource("3_3pst7")
+region = Rect2(40, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esbvh"]
+atlas = ExtResource("3_3pst7")
+region = Rect2(160, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlvro"]
+atlas = ExtResource("3_3pst7")
+region = Rect2(280, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx675"]
+atlas = ExtResource("3_3pst7")
+region = Rect2(400, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ia8cg"]
+atlas = ExtResource("3_3pst7")
+region = Rect2(520, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkp1a"]
+atlas = ExtResource("3_3pst7")
+region = Rect2(640, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_du5gh"]
+atlas = ExtResource("3_3pst7")
+region = Rect2(760, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fau8l"]
+atlas = ExtResource("3_3pst7")
+region = Rect2(880, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et5oq"]
+atlas = ExtResource("3_3pst7")
+region = Rect2(1000, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty0ya"]
+atlas = ExtResource("3_3pst7")
+region = Rect2(1120, 40, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x4er2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0wjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64gxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlvgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybv4r")
+}],
+"loop": true,
+"name": &"Unit 1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wueh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esbvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlvro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gx675")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ia8cg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkp1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_du5gh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fau8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_et5oq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ty0ya")
+}],
+"loop": true,
+"name": &"Unit 2",
+"speed": 5.0
+}]
+
+[node name="Army Select" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bv8dv")
+
+[node name="UnitSelect" type="AnimatedSprite2D" parent="."]
+position = Vector2(774, 307)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_x4er2")
+animation = &"Unit 1"
+
+[node name="AddButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1011.0
+offset_top = 26.0
+offset_right = 1122.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 32
+text = "Add"
+
+[node name="NextUnitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 518.0
+offset_right = 177.0
+offset_bottom = 620.0
+theme_override_font_sizes/font_size = 32
+text = "Next"
+
+[node name="PrevUnitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 80.0
+offset_right = 172.0
+offset_bottom = 182.0
+theme_override_font_sizes/font_size = 32
+text = "Prev"
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 87.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 32
+text = "exit"
+
+[connection signal="pressed" from="NextUnitButton" to="." method="_on_next_unit_button_pressed"]
+[connection signal="pressed" from="PrevUnitButton" to="." method="_on_prev_unit_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
