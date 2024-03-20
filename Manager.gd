@@ -64,8 +64,8 @@ func _on_energy_button_pressed():
 		update_text()
 
 func update_text():
-	$UI/Energy.text = "%s / %s Energy" % [energy, max_energy]
-	$UI/EnergyButton.text = "More energy: %sE" % energy_upgrade_cost
+	$UI/Energy.text = "%s/%s Energy (%s/s)" % [energy, max_energy, energy_per_second]
+	$UI/EnergyButton.text = "More Energy: %sE" % energy_upgrade_cost
 
 func _on_player_tower_player_tower_destroyed():
 	var game_over = game_over_screen.instantiate()
