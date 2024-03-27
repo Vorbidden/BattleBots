@@ -1,44 +1,68 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfwhj8vyxx8ys"]
+[gd_scene load_steps=3 format=3 uid="uid://bfwhj8vyxx8ys"]
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_85637"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4f4k2"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2.0
-offset_top = -41.0
-offset_right = -2.0
-offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_85637")
 
 [node name="PlayButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 993.0
-offset_top = 547.0
-offset_right = 1104.0
-offset_bottom = 617.0
+offset_left = 908.0
+offset_top = 518.0
+offset_right = 1108.0
+offset_bottom = 588.0
 text = "Play"
 
 [node name="TutorialButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 833.0
-offset_top = 547.0
-offset_right = 944.0
-offset_bottom = 617.0
+offset_left = 620.0
+offset_top = 518.0
+offset_right = 820.0
+offset_bottom = 588.0
 text = "Tutorial"
 
 [node name="ArmyButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 669.0
-offset_top = 551.0
-offset_right = 780.0
-offset_bottom = 621.0
+offset_left = 44.0
+offset_top = 518.0
+offset_right = 244.0
+offset_bottom = 588.0
 text = "Army"
+
+[node name="RecruitButton" type="Button" parent="."]
+offset_left = 332.0
+offset_top = 518.0
+offset_right = 532.0
+offset_bottom = 588.0
+text = "Recruit"
+
+[node name="SettingButton" type="Button" parent="."]
+offset_left = 1082.0
+offset_right = 1152.0
+offset_bottom = 70.0
+text = "Setting"
+icon = SubResource("CompressedTexture2D_4f4k2")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 161.0
+offset_right = 825.0
+offset_bottom = 337.0
+theme_override_font_sizes/normal_font_size = 64
+text = "Imaginary Brass"
+fit_content = true
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="ArmyButton" to="." method="_on_army_button_pressed"]
+[connection signal="pressed" from="RecruitButton" to="." method="_on_recruit_button_pressed"]
+[connection signal="pressed" from="SettingButton" to="." method="_on_setting_button_pressed"]
