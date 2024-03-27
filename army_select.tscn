@@ -133,6 +133,7 @@ sprite_frames = SubResource("SpriteFrames_x4er2")
 animation = &"Unit 1"
 
 [node name="AddButton" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 1011.0
 offset_top = 26.0
@@ -142,6 +143,7 @@ theme_override_font_sizes/font_size = 32
 text = "Add"
 
 [node name="NextUnitButton" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 66.0
 offset_top = 518.0
@@ -151,6 +153,7 @@ theme_override_font_sizes/font_size = 32
 text = "Next"
 
 [node name="PrevUnitButton" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 61.0
 offset_top = 80.0
@@ -159,14 +162,8 @@ offset_bottom = 182.0
 theme_override_font_sizes/font_size = 32
 text = "Prev"
 
-[node name="ExitButton" type="Button" parent="."]
-layout_mode = 0
-offset_right = 87.0
-offset_bottom = 64.0
-theme_override_font_sizes/font_size = 32
-text = "exit"
-
 [node name="UnitName" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 552.0
 offset_top = 492.0
@@ -217,7 +214,14 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 87.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 32
+text = "exit"
+
 [connection signal="pressed" from="NextUnitButton" to="." method="_on_next_unit_button_pressed"]
 [connection signal="pressed" from="PrevUnitButton" to="." method="_on_prev_unit_button_pressed"]
-[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="unit_pressed" from="HBoxContainer/TableOfUnits/ScrollContainer/VBoxContainer/Unit" to="." method="_on_unit_unit_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

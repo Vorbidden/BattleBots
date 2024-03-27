@@ -75,6 +75,7 @@ func _on_player_tower_player_tower_destroyed():
 func _on_enemy_tower_enemy_tower_destroyed():
 	var game_over = game_over_screen.instantiate()
 	get_tree().paused = true
+	game_over.title = "Victory"
 	add_child(game_over)
 
 func _on_deploy_pressed(extra_arg_0):
