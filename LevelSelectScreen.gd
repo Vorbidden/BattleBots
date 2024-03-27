@@ -7,6 +7,7 @@ const LEVEL_BUTTON = preload("res://level_button.tscn")
 @onready var grid = $MarginContainer/VBoxContainer/GridContainer
 
 func _ready():
+	print(dir_path)
 	get_levels(dir_path)
 
 func get_levels(path):
@@ -15,10 +16,10 @@ func get_levels(path):
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
-			print(file_name)
-			create_level_button('%S/%S' % [dir.get_current_dir(), file_name], file_name)
+			print('%s/%s' % [dir.get_current_dir(), file_name])
+			create_level_button('%s/%s' % [dir_path, file_name], file_name)
 			file_name = dir.get_next()
-			print("a")
+
 		dir.list_dir_end()
 	else:
 		print("No Levels found")
