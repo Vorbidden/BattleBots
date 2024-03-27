@@ -24,6 +24,7 @@ offset_bottom = 617.0
 text = "Play"
 
 [node name="TutorialButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 833.0
 offset_top = 547.0
 offset_right = 944.0
@@ -31,6 +32,7 @@ offset_bottom = 617.0
 text = "Tutorial"
 
 [node name="ArmyButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 669.0
 offset_top = 551.0
 offset_right = 780.0

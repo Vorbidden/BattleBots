@@ -1,7 +1,5 @@
 extends Node
 
-var Slot1 = 0
-
 var PlayerUnitsDatabase = {
 	0 : {
 		"name": "Blaster",
@@ -10,6 +8,11 @@ var PlayerUnitsDatabase = {
 	1 : {
 		"name": "Slasher",
 		"scene": preload("res://players/player.tscn")
+	},
+	2 : {
+		"name": "Disaster",
+		"cost": 3,
+		"scene": preload("res://players/player3.tscn")
 	}
 }
 

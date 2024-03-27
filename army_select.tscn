@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://b0vy7tj0ya3gv"]
+[gd_scene load_steps=20 format=3 uid="uid://b0vy7tj0ya3gv"]
 
 [ext_resource type="Script" path="res://army_select.gd" id="1_bv8dv"]
 [ext_resource type="Texture2D" uid="uid://ivn3vwcu0x7y" path="res://assets/players blue x2.png" id="2_6ptvy"]
 [ext_resource type="Texture2D" uid="uid://rus737wiui80" path="res://assets/_Run.png" id="3_3pst7"]
+[ext_resource type="PackedScene" uid="uid://1q6ao141455o" path="res://unit_button.tscn" id="4_m6eec"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p0wjy"]
 atlas = ExtResource("2_6ptvy")
@@ -125,6 +126,7 @@ grow_vertical = 2
 script = ExtResource("1_bv8dv")
 
 [node name="UnitSelect" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(774, 307)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_x4er2")
@@ -164,6 +166,58 @@ offset_bottom = 64.0
 theme_override_font_sizes/font_size = 32
 text = "exit"
 
+[node name="UnitName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 492.0
+offset_right = 1058.0
+offset_bottom = 625.0
+theme_override_font_sizes/font_size = 32
+text = "Name:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TableOfUnits" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/TableOfUnits"]
+layout_mode = 2
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/TableOfUnits/ScrollContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 50
+
+[node name="Unit" parent="HBoxContainer/TableOfUnits/ScrollContainer/VBoxContainer" instance=ExtResource("4_m6eec")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CurrentArmyLoadout" type="PanelContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="UnitShowcase" type="PanelContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="UnitDescription" type="PanelContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
 [connection signal="pressed" from="NextUnitButton" to="." method="_on_next_unit_button_pressed"]
 [connection signal="pressed" from="PrevUnitButton" to="." method="_on_prev_unit_button_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="unit_pressed" from="HBoxContainer/TableOfUnits/ScrollContainer/VBoxContainer/Unit" to="." method="_on_unit_unit_pressed"]

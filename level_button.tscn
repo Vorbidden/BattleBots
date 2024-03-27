@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4eheug3kdikt"]
+
+[ext_resource type="Script" path="res://LevelButton.gd" id="1_an0of"]
+
+[node name="LevelButton" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level 1"
+script = ExtResource("1_an0of")
+level_path = "res://Levels/Level1.tscn"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
