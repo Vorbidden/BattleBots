@@ -17,14 +17,11 @@ script = ExtResource("1_pms3e")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Energy" type="Label" parent="UI"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -93.5
-offset_right = 93.5
-offset_bottom = 64.0
-grow_horizontal = 2
-text = "Bob"
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 215.0
+offset_bottom = 65.0
+text = "Energy"
 label_settings = SubResource("LabelSettings_5ryyy")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -36,9 +33,9 @@ anchor_left = -0.0208333
 anchor_right = 0.0295139
 anchor_bottom = 0.0864198
 offset_left = 1091.0
-offset_top = 17.0
-offset_right = 1099.0
-offset_bottom = 25.0
+offset_top = 15.0
+offset_right = 1103.0
+offset_bottom = 29.0
 text = "Blast
 5E"
 metadata/_edit_use_anchors_ = true
@@ -48,11 +45,11 @@ anchors_preset = -1
 anchor_left = -0.0208333
 anchor_right = 0.0295139
 anchor_bottom = 0.0864198
-offset_left = 530.0
-offset_top = 59.0
-offset_right = 538.0
-offset_bottom = 67.0
-text = "More Energy"
+offset_left = 39.0
+offset_top = 65.0
+offset_right = 181.0
+offset_bottom = 59.0
+text = "Upgrade"
 metadata/_edit_use_anchors_ = true
 
 [node name="DeploySlot2" type="Button" parent="UI"]
@@ -60,10 +57,10 @@ anchors_preset = -1
 anchor_left = -0.0208333
 anchor_right = 0.0295139
 anchor_bottom = 0.0864198
-offset_left = 1001.0
-offset_top = 18.0
-offset_right = 1009.0
-offset_bottom = 26.0
+offset_left = 1006.0
+offset_top = 15.0
+offset_right = 1018.0
+offset_bottom = 29.0
 text = "Sword
 2E"
 metadata/_edit_use_anchors_ = true
@@ -73,10 +70,10 @@ anchors_preset = -1
 anchor_left = -0.0208333
 anchor_right = 0.0295139
 anchor_bottom = 0.0864198
-offset_left = 909.0
-offset_top = 22.0
-offset_right = 917.0
-offset_bottom = 30.0
+offset_left = 921.0
+offset_top = 15.0
+offset_right = 933.0
+offset_bottom = 29.0
 text = "Tank
 3E"
 metadata/_edit_use_anchors_ = true
