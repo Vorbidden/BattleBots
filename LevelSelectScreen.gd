@@ -26,3 +26,7 @@ func create_level_button(level_path: String, level_name: String):
 	btn.text = level_name
 	btn.level_path = level_path
 	grid.add_child(btn)
+
+
+func _on_exit_button_pressed():
+	get_tree().change_scene_to_file("res://main_menu.tscn")
