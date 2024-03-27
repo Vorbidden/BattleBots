@@ -9,7 +9,7 @@ func _process(delta):
 	pass
 
 func _on_play_button_pressed():
-	get_tree().change_scene_to_file("res://level_select.tscn")
+	get_tree().change_scene_to_file("res://Main.tscn")
 	
 func _on_tutorial_button_pressed():
 	get_tree().change_scene_to_file("res://tutorial.tscn")
