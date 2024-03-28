@@ -10,9 +10,7 @@ func _physics_process(delta: float) -> void:
 	if health <= 0:
 		emit_signal("player_tower_destroyed")
 		queue_free()
-
 		$CollisionShape2D.disabled = true
-
 	# Update animations
 	update_animations()
 

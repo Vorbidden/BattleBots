@@ -1,0 +1,121 @@
+[gd_scene load_steps=6 format=3 uid="uid://dylb4s6r745w4"]
+
+[ext_resource type="Script" path="res://Manager.gd" id="1_m2kt1"]
+[ext_resource type="PackedScene" uid="uid://hoymgo6h8ea5" path="res://players/player_tower.tscn" id="2_yf3s8"]
+[ext_resource type="PackedScene" uid="uid://b6cmotu1ddhau" path="res://enemies/enemy_tower.tscn" id="3_4e5rt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ryyy"]
+font_size = 28
+font_color = Color(0.92549, 0.584314, 0.117647, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2rxn"]
+size = Vector2(25.88, 640.625)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_m2kt1")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Energy" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -93.5
+offset_right = 93.5
+offset_bottom = 64.0
+grow_horizontal = 2
+text = "Bob"
+label_settings = SubResource("LabelSettings_5ryyy")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="DeploySlot1" type="Button" parent="UI"]
+anchors_preset = -1
+anchor_left = -0.0208333
+anchor_right = 0.0295139
+anchor_bottom = 0.0864198
+offset_left = 1091.0
+offset_top = 17.0
+offset_right = 1099.0
+offset_bottom = 25.0
+text = "Blast
+5E"
+metadata/_edit_use_anchors_ = true
+
+[node name="EnergyButton" type="Button" parent="UI"]
+anchors_preset = -1
+anchor_left = -0.0208333
+anchor_right = 0.0295139
+anchor_bottom = 0.0864198
+offset_left = 530.0
+offset_top = 59.0
+offset_right = 538.0
+offset_bottom = 67.0
+text = "More Energy"
+metadata/_edit_use_anchors_ = true
+
+[node name="DeploySlot2" type="Button" parent="UI"]
+anchors_preset = -1
+anchor_left = -0.0208333
+anchor_right = 0.0295139
+anchor_bottom = 0.0864198
+offset_left = 1001.0
+offset_top = 18.0
+offset_right = 1009.0
+offset_bottom = 26.0
+text = "Sword
+2E"
+metadata/_edit_use_anchors_ = true
+
+[node name="DeploySlot3" type="Button" parent="UI"]
+anchors_preset = -1
+anchor_left = -0.0208333
+anchor_right = 0.0295139
+anchor_bottom = 0.0864198
+offset_left = 909.0
+offset_top = 22.0
+offset_right = 917.0
+offset_bottom = 30.0
+text = "Tank
+3E"
+metadata/_edit_use_anchors_ = true
+
+[node name="Wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(-441, 308)
+shape = SubResource("RectangleShape2D_f2rxn")
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(1000, 2.08165e-12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2(1061, 321)
+shape = SubResource("RectangleShape2D_f2rxn")
+
+[node name="Players" type="Node" parent="."]
+
+[node name="player_tower" parent="Players" instance=ExtResource("2_yf3s8")]
+position = Vector2(1065, 489)
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="enemy_tower" parent="Enemies" instance=ExtResource("3_4e5rt")]
+position = Vector2(100, 481)
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="EnergyRechargeTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="pressed" from="UI/DeploySlot1" to="." method="_on_deploy_pressed" binds= [0]]
+[connection signal="pressed" from="UI/EnergyButton" to="." method="_on_energy_button_pressed"]
+[connection signal="pressed" from="UI/DeploySlot2" to="." method="_on_deploy_pressed" binds= [1]]
+[connection signal="pressed" from="UI/DeploySlot3" to="." method="_on_deploy_pressed" binds= [2]]
+[connection signal="player_tower_destroyed" from="Players/player_tower" to="." method="_on_player_tower_player_tower_destroyed"]
+[connection signal="enemy_tower_destroyed" from="Enemies/enemy_tower" to="." method="_on_enemy_tower_enemy_tower_destroyed"]
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="EnergyRechargeTimer" to="." method="_on_energy_recharge_timer_timeout"]

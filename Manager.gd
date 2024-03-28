@@ -17,6 +17,7 @@ var game_over_screen = preload("res://game_over_screen.tscn")
 @export var max_energy: int = 12
 @export var default_spawn_cost : int = 2
 @export var energy_upgrade_cost: int = 5
+
 # Called when the node enters the scene tree for the first time.
 
 var player_tower_x: int = 0
@@ -31,9 +32,8 @@ func _ready():
 	player2 = Game.CurrentArmy[1]["scene"]
 	player3 = Game.CurrentArmy[2]["scene"]
 	
-	
 	army = [player, player2, player3]
-	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -75,6 +75,7 @@ func _on_player_tower_player_tower_destroyed():
 func _on_enemy_tower_enemy_tower_destroyed():
 	var game_over = game_over_screen.instantiate()
 	get_tree().paused = true
+	game_over.title = "Victory"
 	add_child(game_over)
 
 func _on_deploy_pressed(extra_arg_0):

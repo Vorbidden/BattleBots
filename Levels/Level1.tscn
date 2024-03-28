@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://b5u8tpxchjafb"]
 
-[ext_resource type="Script" path="res://Manager.gd" id="1_8yr2x"]
-[ext_resource type="PackedScene" uid="uid://hoymgo6h8ea5" path="res://players/player_tower.tscn" id="2_ct1jn"]
-[ext_resource type="PackedScene" uid="uid://b6cmotu1ddhau" path="res://enemies/enemy_tower.tscn" id="3_7irdb"]
+[ext_resource type="Script" path="res://Manager.gd" id="1_pms3e"]
+[ext_resource type="PackedScene" uid="uid://hoymgo6h8ea5" path="res://players/player_tower.tscn" id="2_m0jxo"]
+[ext_resource type="PackedScene" uid="uid://b6cmotu1ddhau" path="res://enemies/enemy_tower.tscn" id="3_7yts3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5ryyy"]
 font_size = 28
@@ -12,7 +12,7 @@ font_color = Color(0.92549, 0.584314, 0.117647, 1)
 size = Vector2(25.88, 640.625)
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_8yr2x")
+script = ExtResource("1_pms3e")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -93,12 +93,12 @@ shape = SubResource("RectangleShape2D_f2rxn")
 
 [node name="Players" type="Node" parent="."]
 
-[node name="player_tower" parent="Players" instance=ExtResource("2_ct1jn")]
+[node name="player_tower" parent="Players" instance=ExtResource("2_m0jxo")]
 position = Vector2(1065, 489)
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="enemy_tower" parent="Enemies" instance=ExtResource("3_7irdb")]
+[node name="enemy_tower" parent="Enemies" instance=ExtResource("3_7yts3")]
 position = Vector2(100, 481)
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
