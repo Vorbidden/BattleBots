@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://soom3756kiqg"]
+[gd_scene load_steps=81 format=3 uid="uid://soom3756kiqg"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_kqbae"]
 [ext_resource type="Texture2D" uid="uid://b72vccsl3nyue" path="res://assets/_Attack.png" id="2_rpipn"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://n8vc55misga5" path="res://assets/_Idle.png" id="8_j6hqk"]
 [ext_resource type="Texture2D" uid="uid://w0pncsdrf2uu" path="res://assets/_Jump.png" id="9_el60k"]
 [ext_resource type="Texture2D" uid="uid://rus737wiui80" path="res://assets/_Run.png" id="10_scu46"]
+[ext_resource type="AudioStream" uid="uid://dvr3x2v5jhjic" path="res://audio/sword.mp3" id="11_pb80q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2kry"]
 size = Vector2(60, 152)
@@ -567,6 +568,17 @@ metadata/_edit_lock_ = true
 position = Vector2(-14, 76)
 target_position = Vector2(200, 2.08165e-12)
 metadata/_edit_lock_ = true
+
+[node name="Name" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Player"
+
+[node name="sword" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_pb80q")
+volume_db = -20.0
+pitch_scale = 0.75
 
 [connection signal="animation_changed" from="Sprite2D" to="." method="_on_sprite_2d_animation_changed"]
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]

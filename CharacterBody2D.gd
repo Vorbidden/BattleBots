@@ -39,12 +39,13 @@ func _physics_process(delta: float) -> void:
 					$Bullets.shoot_bullet(damage)
 				else:
 					$RayCast2D.get_collider().take_damage(damage)
+				play_sound()
 			is_attacking = true
 			velocity.x = 0
 	else:
 		if !is_attacking:
 			velocity.x = direction * speed
-
+			
 	if is_dying:
 		velocity.x = 0
 
@@ -53,7 +54,20 @@ func _physics_process(delta: float) -> void:
 
 	# Update animations
 	update_animations()
-
+	
+func play_sound():
+	match $Name.text:
+		"Enemy":
+			$sword.play()
+		"Enemy2":
+			$enemy_laser.play()
+		"Player":
+			$sword.play()
+		"Player2":
+			$blast.play()
+		"Player3":
+			$pistol.play()
+			
 # Update character animations based on the current state
 func update_animations():
 	if is_dying:

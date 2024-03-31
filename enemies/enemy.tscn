@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://boihpqhcex618"]
+[gd_scene load_steps=81 format=3 uid="uid://boihpqhcex618"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_y27he"]
 [ext_resource type="Texture2D" uid="uid://b72vccsl3nyue" path="res://assets/_Attack.png" id="2_4l1c5"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://n8vc55misga5" path="res://assets/_Idle.png" id="8_qbga3"]
 [ext_resource type="Texture2D" uid="uid://w0pncsdrf2uu" path="res://assets/_Jump.png" id="9_yg6o4"]
 [ext_resource type="Texture2D" uid="uid://rus737wiui80" path="res://assets/_Run.png" id="10_we811"]
+[ext_resource type="AudioStream" uid="uid://dvr3x2v5jhjic" path="res://audio/sword.mp3" id="11_akhpq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2kry"]
 size = Vector2(60, 152)
@@ -565,6 +566,17 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_r1e8p")
 animation = &"death"
 metadata/_edit_lock_ = true
+
+[node name="Name" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Enemy"
+
+[node name="sword" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_akhpq")
+volume_db = -20.0
+pitch_scale = 0.75
 
 [connection signal="animation_changed" from="Sprite2D" to="." method="_on_sprite_2d_animation_changed"]
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://dkx4f2wmoitxa"]
+[gd_scene load_steps=27 format=3 uid="uid://dkx4f2wmoitxa"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_wr5so"]
 [ext_resource type="Texture2D" uid="uid://ivn3vwcu0x7y" path="res://assets/players blue x2.png" id="2_n4vcf"]
+[ext_resource type="AudioStream" uid="uid://ht44agiunrt0" path="res://audio/blaster.mp3" id="3_ed0kt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2kry"]
 size = Vector2(60, 152)
@@ -236,5 +237,16 @@ flip_h = true
 position = Vector2(-14, 76)
 target_position = Vector2(200, 2.08165e-12)
 metadata/_edit_lock_ = true
+
+[node name="Name" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Player2"
+
+[node name="blast" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ed0kt")
+volume_db = -20.0
+pitch_scale = 0.8
 
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]
