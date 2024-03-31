@@ -1,5 +1,7 @@
 extends Node2D
 
+const battle = preload("res://audio/battle_music.mp3")
+
 var player 
 var player2 
 var player3
@@ -36,7 +38,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if AudioControl.music_playing(battle) == false:
+		AudioControl.play_music(battle, -40)
 
 func _on_timer_timeout():
 	var instance = enemy.instantiate()

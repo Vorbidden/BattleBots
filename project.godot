@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Game="*res://Global/Game.gd"
+AudioControl="*res://AudioControl.tscn"
 
 [display]
 
