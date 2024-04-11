@@ -91,3 +91,10 @@ func _on_deploy_pressed(extra_arg_0):
 			instance.position.x = player_tower_x
 			$Players.add_child(instance)
 			update_text()
+
+func _on_paused_pressed():
+	var pause_screen = game_over_screen.instantiate()
+	get_tree().paused = true
+	pause_screen.paused = true
+	pause_screen.title = "Paused"
+	add_child(pause_screen)
