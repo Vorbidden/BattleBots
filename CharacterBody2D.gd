@@ -68,7 +68,6 @@ func _physics_process(delta: float) -> void:
 
 	# Update animations
 	update_animations()
-
 	
 func play_sound():
 	match $Name.text:
