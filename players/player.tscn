@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=43 format=3 uid="uid://soom3756kiqg"]
+=======
+[gd_scene load_steps=81 format=3 uid="uid://soom3756kiqg"]
+>>>>>>> 8c16455ca1a159189da2aec70c408899b7a13a63
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_kqbae"]
 [ext_resource type="Texture2D" uid="uid://4e4slux0b5n7" path="res://game_assets/robot_attack_blue/robot_attack_blue_Animation 1_0.png" id="2_qvvyn"]
@@ -10,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bcmto8m6orfxd" path="res://game_assets/robot_attack_blue/robot_attack_blue_Animation 1_5.png" id="7_tqih2"]
 [ext_resource type="Texture2D" uid="uid://cbmr31mbmq2wn" path="res://game_assets/robot_attack_blue/robot_attack_blue_Animation 1_6.png" id="8_hc0c6"]
 [ext_resource type="Texture2D" uid="uid://w0pncsdrf2uu" path="res://assets/_Jump.png" id="9_el60k"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://c81au5eoisb1g" path="res://game_assets/robot_attack_blue/robot_attack_blue_Animation 1_7.png" id="9_tru5a"]
 [ext_resource type="Texture2D" uid="uid://sf6mwtoj0dui" path="res://game_assets/robot_idle_blue/robot_idle_blue_Animation 1_0.png" id="10_4yyp1"]
 [ext_resource type="Texture2D" uid="uid://cxsou2mgp8chn" path="res://game_assets/robot_idle_blue/robot_idle_blue_Animation 1_1.png" id="11_2tw1a"]
@@ -27,6 +32,10 @@
 [ext_resource type="Texture2D" uid="uid://0k8b4wg3v4uf" path="res://game_assets/robot_run_blue/robot_run_blue_Animation 1_5.png" id="25_ca78r"]
 [ext_resource type="Texture2D" uid="uid://cnysd4qtnrm2e" path="res://game_assets/robot_run_blue/robot_run_blue_Animation 1_6.png" id="26_vhpdt"]
 [ext_resource type="Texture2D" uid="uid://c5soox1mqvvbi" path="res://game_assets/robot_run_blue/robot_run_blue_Animation 1_7.png" id="27_ow3kl"]
+=======
+[ext_resource type="Texture2D" uid="uid://rus737wiui80" path="res://assets/_Run.png" id="10_scu46"]
+[ext_resource type="AudioStream" uid="uid://dvr3x2v5jhjic" path="res://audio/sword.mp3" id="11_pb80q"]
+>>>>>>> 8c16455ca1a159189da2aec70c408899b7a13a63
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2kry"]
 size = Vector2(60, 152)
@@ -254,6 +263,17 @@ flip_h = true
 position = Vector2(-14, 76)
 target_position = Vector2(200, 2.08165e-12)
 metadata/_edit_lock_ = true
+
+[node name="Name" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Player"
+
+[node name="sword" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_pb80q")
+volume_db = -20.0
+pitch_scale = 0.75
 
 [connection signal="animation_changed" from="Sprite2D" to="." method="_on_sprite_2d_animation_changed"]
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]

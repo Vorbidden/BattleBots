@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx45mi1c76rwh"]
+
+[ext_resource type="Script" path="res://AudioControl.gd" id="1_kiqmi"]
+
+[node name="AudioControl" type="AudioStreamPlayer"]
+script = ExtResource("1_kiqmi")

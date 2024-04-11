@@ -40,7 +40,12 @@ func _physics_process(delta: float) -> void:
 				if has_projectiles:
 					$Bullets.shoot_bullet(damage)
 				else:
+<<<<<<< HEAD
 					in_foreswing = true
+=======
+					$RayCast2D.get_collider().take_damage(damage)
+				play_sound()
+>>>>>>> 8c16455ca1a159189da2aec70c408899b7a13a63
 			is_attacking = true
 			velocity.x = 0
 			if in_foreswing:
@@ -50,7 +55,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		if !is_attacking:
 			velocity.x = direction * speed
+<<<<<<< HEAD
 	
+=======
+			
+>>>>>>> 8c16455ca1a159189da2aec70c408899b7a13a63
 	if is_dying:
 		velocity.x = 0
 
@@ -60,6 +69,20 @@ func _physics_process(delta: float) -> void:
 	# Update animations
 	update_animations()
 
+	
+func play_sound():
+	match $Name.text:
+		"Enemy":
+			$sword.play()
+		"Enemy2":
+			$enemy_laser.play()
+		"Player":
+			$sword.play()
+		"Player2":
+			$blast.play()
+		"Player3":
+			$pistol.play()
+			
 # Update character animations based on the current state
 func update_animations():
 	if is_dying:
