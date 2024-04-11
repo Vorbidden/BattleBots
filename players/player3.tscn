@@ -1,24 +1,16 @@
-<<<<<<< HEAD
 [gd_scene load_steps=31 format=3 uid="uid://col7ca6rk2rm"]
-=======
-[gd_scene load_steps=37 format=3 uid="uid://col7ca6rk2rm"]
->>>>>>> 8c16455ca1a159189da2aec70c408899b7a13a63
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_1uadw"]
 [ext_resource type="Texture2D" uid="uid://bngekg5jdncxl" path="res://game_assets/shield_blue/shield_blue_Animation 1_0.png" id="2_7gado"]
 [ext_resource type="Texture2D" uid="uid://ivn3vwcu0x7y" path="res://assets/players blue x2.png" id="2_khxdi"]
 [ext_resource type="Texture2D" uid="uid://cabkhjq2eu3ap" path="res://game_assets/shield_blue/shield_blue_Animation 1_1.png" id="3_i40m7"]
 [ext_resource type="Texture2D" uid="uid://n8vc55misga5" path="res://assets/_Idle.png" id="3_q0u7p"]
-<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://ri5xjigf4ixx" path="res://game_assets/shield_blue/shield_blue_Animation 1_2.png" id="4_is4lq"]
 [ext_resource type="Texture2D" uid="uid://cqb6coww3nynn" path="res://game_assets/shield_blue/shield_blue_Animation 1_3.png" id="5_cee5d"]
 [ext_resource type="Texture2D" uid="uid://blhwkmyo0sxrj" path="res://game_assets/shield_blue/shield_blue_Animation 1_4.png" id="6_indcc"]
 [ext_resource type="Texture2D" uid="uid://c4hjhkxqiyig1" path="res://game_assets/shield_blue/shield_blue_Animation 1_5.png" id="7_o2mv1"]
 [ext_resource type="Texture2D" uid="uid://drnof557tde8k" path="res://game_assets/shield_blue/shield_blue_Animation 1_6.png" id="8_mbtxm"]
 [ext_resource type="Texture2D" uid="uid://dj5l4dghvud4m" path="res://game_assets/shield_blue/shield_blue_Animation 1_7.png" id="9_lkgsc"]
-=======
-[ext_resource type="AudioStream" uid="uid://c6ms3x1ec2ptv" path="res://audio/pistol.mp3" id="4_a8bgm"]
->>>>>>> 8c16455ca1a159189da2aec70c408899b7a13a63
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2kry"]
 size = Vector2(60, 152)
@@ -253,16 +245,7 @@ position = Vector2(-14, 76)
 target_position = Vector2(200, 2.08165e-12)
 metadata/_edit_lock_ = true
 
-[node name="Name" type="Label" parent="."]
-visible = false
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Player3"
-
-[node name="pistol" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_a8bgm")
-volume_db = -35.0
-pitch_scale = 1.5
+[node name="attack_sound" type="AudioStreamPlayer" parent="."]
 
 [connection signal="animation_changed" from="Sprite2D" to="." method="_on_sprite_2d_animation_changed"]
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]

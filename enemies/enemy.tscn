@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=50 format=3 uid="uid://boihpqhcex618"]
-=======
-[gd_scene load_steps=81 format=3 uid="uid://boihpqhcex618"]
->>>>>>> 8c16455ca1a159189da2aec70c408899b7a13a63
+[gd_scene load_steps=51 format=3 uid="uid://boihpqhcex618"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_y27he"]
 [ext_resource type="Texture2D" uid="uid://co5q08sggrgu7" path="res://game_assets/robot_attack_red/robot_attack_red_Animation 1_0.png" id="2_ng0ch"]
@@ -14,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://khr6qjbf3tmp" path="res://game_assets/robot_attack_red/robot_attack_red_Animation 1_5.png" id="7_haxdf"]
 [ext_resource type="Texture2D" uid="uid://dqe1lgbkajccg" path="res://game_assets/robot_attack_red/robot_attack_red_Animation 1_6.png" id="8_3hsp3"]
 [ext_resource type="Texture2D" uid="uid://n8vc55misga5" path="res://assets/_Idle.png" id="8_qbga3"]
-<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://bu7pos6nv8iog" path="res://game_assets/robot_attack_red/robot_attack_red_Animation 1_7.png" id="9_h6ymr"]
 [ext_resource type="Texture2D" uid="uid://ey3ec05ivhrq" path="res://game_assets/robot_idle_red/robot_idle_red_Animation 1_0.png" id="10_2urik"]
 [ext_resource type="Texture2D" uid="uid://rx76sy4hq1if" path="res://game_assets/robot_idle_red/robot_idle_red_Animation 1_1.png" id="11_n2fpf"]
@@ -32,11 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://bjak5iuoccd2r" path="res://game_assets/robot_run_red/robot_run_red_Animation 1_5.png" id="25_5uth2"]
 [ext_resource type="Texture2D" uid="uid://cms0f2sa81yhu" path="res://game_assets/robot_run_red/robot_run_red_Animation 1_6.png" id="26_g4f2j"]
 [ext_resource type="Texture2D" uid="uid://c7c8rwbmkucgo" path="res://game_assets/robot_run_red/robot_run_red_Animation 1_7.png" id="27_u8e6t"]
-=======
-[ext_resource type="Texture2D" uid="uid://w0pncsdrf2uu" path="res://assets/_Jump.png" id="9_yg6o4"]
-[ext_resource type="Texture2D" uid="uid://rus737wiui80" path="res://assets/_Run.png" id="10_we811"]
-[ext_resource type="AudioStream" uid="uid://dvr3x2v5jhjic" path="res://audio/sword.mp3" id="11_akhpq"]
->>>>>>> 8c16455ca1a159189da2aec70c408899b7a13a63
+[ext_resource type="AudioStream" uid="uid://dvr3x2v5jhjic" path="res://audio/sword.mp3" id="28_7vr4v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2kry"]
 size = Vector2(60, 152)
@@ -310,18 +301,11 @@ metadata/_edit_lock_ = true
 position = Vector2(0, 90)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_r1e8p")
-animation = &"death"
+animation = &"run"
 
-[node name="Name" type="Label" parent="."]
-visible = false
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Enemy"
-
-[node name="sword" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("11_akhpq")
-volume_db = -20.0
-pitch_scale = 0.75
+[node name="attack_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_7vr4v")
+volume_db = -10.0
 
 [connection signal="animation_changed" from="Sprite2D" to="." method="_on_sprite_2d_animation_changed"]
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]

@@ -1,13 +1,8 @@
-<<<<<<< HEAD
-[gd_scene load_steps=20 format=3 uid="uid://dkx4f2wmoitxa"]
-=======
-[gd_scene load_steps=27 format=3 uid="uid://dkx4f2wmoitxa"]
->>>>>>> 8c16455ca1a159189da2aec70c408899b7a13a63
+[gd_scene load_steps=21 format=3 uid="uid://dkx4f2wmoitxa"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_wr5so"]
 [ext_resource type="Texture2D" uid="uid://brvoqtpgeuhm" path="res://game_assets/turret_idle_blue/turret_idle_blue_Animation 1_0.png" id="2_3k0am"]
 [ext_resource type="Texture2D" uid="uid://ivn3vwcu0x7y" path="res://assets/players blue x2.png" id="2_n4vcf"]
-<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://bhjso5mf5it53" path="res://game_assets/turret_idle_blue/turret_idle_blue_Animation 1_1.png" id="3_0xjw2"]
 [ext_resource type="Texture2D" uid="uid://bhor3ry85w38i" path="res://game_assets/turret_idle_blue/turret_idle_blue_Animation 1_2.png" id="4_tcfon"]
 [ext_resource type="Texture2D" uid="uid://b2240lrlq73f1" path="res://game_assets/turret_idle_blue/turret_idle_blue_Animation 1_3.png" id="5_ubwym"]
@@ -19,9 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://vyu8m1qunw51" path="res://game_assets/turret_walk_blue/turret_walk_blue_Animation 1_1.png" id="12_satum"]
 [ext_resource type="Texture2D" uid="uid://di2vgwnjrmsfy" path="res://game_assets/turret_walk_blue/turret_walk_blue_Animation 1_2.png" id="13_cr6e5"]
 [ext_resource type="Texture2D" uid="uid://bgejihto422o1" path="res://game_assets/turret_walk_blue/turret_walk_blue_Animation 1_3.png" id="14_m2epd"]
-=======
-[ext_resource type="AudioStream" uid="uid://ht44agiunrt0" path="res://audio/blaster.mp3" id="3_ed0kt"]
->>>>>>> 8c16455ca1a159189da2aec70c408899b7a13a63
+[ext_resource type="AudioStream" uid="uid://ht44agiunrt0" path="res://audio/blaster.mp3" id="15_ngwm1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2kry"]
 size = Vector2(60, 152)
@@ -106,7 +99,7 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Drone" type="CharacterBody2D"]
 position = Vector2(1378, 492)
 collision_layer = 2
 script = ExtResource("1_wr5so")
@@ -146,15 +139,8 @@ position = Vector2(-14, 76)
 target_position = Vector2(200, 2.08165e-12)
 metadata/_edit_lock_ = true
 
-[node name="Name" type="Label" parent="."]
-visible = false
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Player2"
-
-[node name="blast" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_ed0kt")
+[node name="attack_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_ngwm1")
 volume_db = -20.0
-pitch_scale = 0.8
 
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]
