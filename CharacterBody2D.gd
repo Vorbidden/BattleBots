@@ -11,12 +11,14 @@ extends CharacterBody2D
 @export var attack_range: float = 200
 @export var health: int = 50
 @export var has_projectiles: bool = false
+@export var attack_frame: int = 0
 
 var jump_power: float = 500
 var gravity: float = 1000
 var is_attacking: bool = false
 var attack_animation = ["attack", "attack_2", "attack_combo"][randi_range(0,2)]
 var is_dying: bool = false
+var in_foreswing: bool = false
 	
 func _ready():
 	$RayCast2D.target_position.x = attack_range * direction
@@ -38,13 +40,17 @@ func _physics_process(delta: float) -> void:
 				if has_projectiles:
 					$Bullets.shoot_bullet(damage)
 				else:
-					$RayCast2D.get_collider().take_damage(damage)
+					in_foreswing = true
 			is_attacking = true
 			velocity.x = 0
+			if in_foreswing:
+				if $Sprite2D.get_frame() == attack_frame:
+					$RayCast2D.get_collider().take_damage(damage)
+					in_foreswing = false
 	else:
 		if !is_attacking:
 			velocity.x = direction * speed
-
+	
 	if is_dying:
 		velocity.x = 0
 

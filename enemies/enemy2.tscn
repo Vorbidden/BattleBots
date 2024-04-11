@@ -1,27 +1,23 @@
-[gd_scene load_steps=26 format=3 uid="uid://3v22nlm6tnq3"]
+[gd_scene load_steps=30 format=3 uid="uid://3v22nlm6tnq3"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_t7fjy"]
+[ext_resource type="Texture2D" uid="uid://c6xurd1yqc05h" path="res://game_assets/turret_idle_red/turret_idle_red_Animation 1_0.png" id="2_3csvq"]
 [ext_resource type="Texture2D" uid="uid://bei5ev4io1mk6" path="res://assets/enemies x2.png" id="2_7js1h"]
+[ext_resource type="Texture2D" uid="uid://c2rxhan82fsod" path="res://game_assets/turret_idle_red/turret_idle_red_Animation 1_1.png" id="3_eg123"]
+[ext_resource type="Texture2D" uid="uid://bs5freo64h70p" path="res://game_assets/turret_idle_red/turret_idle_red_Animation 1_2.png" id="4_j10iy"]
+[ext_resource type="Texture2D" uid="uid://ceru3cofovvwa" path="res://game_assets/turret_idle_red/turret_idle_red_Animation 1_3.png" id="5_fphp0"]
+[ext_resource type="Texture2D" uid="uid://8edqxkxi0s4d" path="res://game_assets/turret_idle_red/turret_idle_red_Animation 1_4.png" id="6_mt8tt"]
 [ext_resource type="Script" path="res://enemies/Bullets.gd" id="6_w70xf"]
+[ext_resource type="Texture2D" uid="uid://4j4mffhshc1c" path="res://game_assets/turret_idle_red/turret_idle_red_Animation 1_5.png" id="7_82m7u"]
+[ext_resource type="Texture2D" uid="uid://cc735ihijq58d" path="res://game_assets/turret_idle_red/turret_idle_red_Animation 1_6.png" id="8_5iwsx"]
+[ext_resource type="Texture2D" uid="uid://b78pbcumwl1mr" path="res://game_assets/turret_idle_red/turret_idle_red_Animation 1_7.png" id="9_vvkin"]
+[ext_resource type="Texture2D" uid="uid://bhctptaisj051" path="res://game_assets/turret_walk_red/turret_walk_red_Animation 1_0.png" id="11_kapat"]
+[ext_resource type="Texture2D" uid="uid://d3e0088026qp" path="res://game_assets/turret_walk_red/turret_walk_red_Animation 1_1.png" id="12_lje76"]
+[ext_resource type="Texture2D" uid="uid://btvvrwu7muvb0" path="res://game_assets/turret_walk_red/turret_walk_red_Animation 1_2.png" id="13_k6ydk"]
+[ext_resource type="Texture2D" uid="uid://05jiyomkl6om" path="res://game_assets/turret_walk_red/turret_walk_red_Animation 1_3.png" id="14_fj86x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2kry"]
 size = Vector2(60, 152)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dfv2s"]
-atlas = ExtResource("2_7js1h")
-region = Rect2(0, 128, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3phmt"]
-atlas = ExtResource("2_7js1h")
-region = Rect2(64, 128, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wm6hb"]
-atlas = ExtResource("2_7js1h")
-region = Rect2(128, 128, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ix4un"]
-atlas = ExtResource("2_7js1h")
-region = Rect2(192, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jychj"]
 atlas = ExtResource("2_7js1h")
@@ -71,36 +67,32 @@ region = Rect2(128, 0, 64, 64)
 atlas = ExtResource("2_7js1h")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j72xd"]
-atlas = ExtResource("2_7js1h")
-region = Rect2(0, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_igw13"]
-atlas = ExtResource("2_7js1h")
-region = Rect2(64, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0edxt"]
-atlas = ExtResource("2_7js1h")
-region = Rect2(128, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vxtf5"]
-atlas = ExtResource("2_7js1h")
-region = Rect2(192, 64, 64, 64)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_r1e8p"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dfv2s")
+"texture": ExtResource("2_3csvq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3phmt")
+"texture": ExtResource("3_eg123")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wm6hb")
+"texture": ExtResource("4_j10iy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ix4un")
+"texture": ExtResource("5_fphp0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mt8tt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_82m7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5iwsx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vvkin")
 }],
 "loop": false,
 "name": &"attack",
@@ -154,20 +146,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j72xd")
+"texture": ExtResource("11_kapat")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_igw13")
+"texture": ExtResource("12_lje76")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0edxt")
+"texture": ExtResource("13_k6ydk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vxtf5")
+"texture": ExtResource("14_fj86x")
 }],
 "loop": true,
 "name": &"run",
-"speed": 15.0
+"speed": 8.0
 }]
 
 [node name="Enemy2" type="CharacterBody2D"]
@@ -204,13 +196,13 @@ shape = SubResource("RectangleShape2D_x2kry")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-4, 56)
-scale = Vector2(2, 2)
+position = Vector2(-3, 136)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_r1e8p")
 animation = &"attack"
 
 [node name="Bullets" type="Marker2D" parent="."]
-position = Vector2(22, 32)
+position = Vector2(8, 52)
 script = ExtResource("6_w70xf")
 
 [node name="Timer" type="Timer" parent="Bullets"]

@@ -38,6 +38,7 @@ offset_bottom = 588.0
 text = "Army"
 
 [node name="RecruitButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 332.0
 offset_top = 518.0
 offset_right = 532.0
@@ -45,6 +46,7 @@ offset_bottom = 588.0
 text = "Recruit"
 
 [node name="SettingButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1082.0
 offset_right = 1152.0
 offset_bottom = 70.0
