@@ -165,7 +165,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 8.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -264,7 +264,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 8.0
+"speed": 12.0
 }]
 
 [node name="Enemy" type="CharacterBody2D"]
@@ -301,7 +301,7 @@ metadata/_edit_lock_ = true
 position = Vector2(0, 90)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_r1e8p")
-animation = &"run"
+animation = &"attack"
 
 [node name="attack_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("28_7vr4v")
